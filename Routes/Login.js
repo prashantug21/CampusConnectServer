@@ -26,6 +26,8 @@ async function login(req,res){
         const token=jwt.sign({_id:user._id},secretKey,{expiresIn:'30d'});
         res.cookie('jwtToken', token, {
             path:'/',
+            samesite:'none',
+            secure:true,
             maxAge: 30*24*3600000
           }).status(201).json({message:"Login Successful","username":user.username});
           await otpRequests.deleteOne({email:email})
