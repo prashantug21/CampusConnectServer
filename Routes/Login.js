@@ -27,6 +27,7 @@ async function login(req,res){
     console.log(2)
         const token=jwt.sign({_id:user._id},secretKey,{expiresIn:'30d'});
         res.header('Access-Control-Allow-Origin', 'https://campusconnect.onrender.com');
+        res.header('Access-Control-Allow-Headers', '*');
         res.header('Access-Control-Allow-Credentials', true);
         res.cookie('jwtToken', token, {
             path:'/',
