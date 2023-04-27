@@ -17,7 +17,6 @@ mongoose
 
 
 app.use(cors({
-  origin:'https://campusconnect1.netlify.app/',
   credentials: true,
 }
 ));
