@@ -26,9 +26,11 @@ async function login(req,res){
         }
     console.log(2)
         const token=jwt.sign({_id:user._id},secretKey,{expiresIn:'30d'});
+        res.header('Access-Control-Allow-Origin', 'hhttps://campusconnect1.netlify.app/');
+        res.header('Access-Control-Allow-Credentials', true);
         res.cookie('jwtToken', token, {
             path:'/',
-            httpOnly:false,
+            httpOnly:true,
             samesite:'none',
             secure:true,
             maxAge: 30*24*3600000
