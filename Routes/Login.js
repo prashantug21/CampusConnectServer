@@ -30,7 +30,7 @@ async function login(req,res){
         res.header('Access-Control-Allow-Credentials', true);
         res.cookie('jwtToken', token, {
             path:'/',
-            httpOnly:true,
+            httpOnly:false,
             sameSite:'none',
             secure:true,
             maxAge: 30*24*3600000
