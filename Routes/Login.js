@@ -29,7 +29,7 @@ async function login(req,res){
         res.header('Access-Control-Allow-Origin', 'https://campusconnect1.netlify.app');
         res.header('Access-Control-Allow-Credentials', true);
         res.cookie('jwtToken', token, {
-            path:'/',
+            path:'https://campusconnect1.netlify.app',
             httpOnly:false,
             sameSite:'none',
             secure:true,
