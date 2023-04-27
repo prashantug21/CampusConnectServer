@@ -28,7 +28,7 @@ async function login(req,res){
         const token=jwt.sign({_id:user._id},secretKey,{expiresIn:'30d'});
         res.cookie('jwtToken', token, {
             path:'/',
-            httpOnly:true;
+            httpOnly:false,
             samesite:'none',
             secure:true,
             maxAge: 30*24*3600000
