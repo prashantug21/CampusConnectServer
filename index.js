@@ -17,7 +17,7 @@ mongoose
 
 
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: 'https://campusconnect1.netlify.app/',
   credentials: true,
   httpOnly: false,
 }));
