@@ -36,10 +36,7 @@ async function signUP(req,res){
           await otpRequests.deleteOne({email:email})
           user=await UserModel.findOne({email:email})
           const token = jwt.sign({_id:user._id},secretKey,{expiresIn:'30d'});
-          res.cookie('jwtToken',token,{
-            path:'/',
-            maxAge: 30*24*60*60*1000,
-          }).status(201).json({message:"Registration successful",username:user.username})
+          res.status(201).json({message:"Registration successful",username:user.username,jwtToken:token})
         }
     }catch(e){
       console.log(e)
