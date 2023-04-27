@@ -16,9 +16,10 @@ mongoose
   });
 
 
-app.use(cors(
+app.use(cors({
   origin:'https://campusconnect1.netlify.app/',
   credentials: true,
+}
 ));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json({limit:'50mb'}));
