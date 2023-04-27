@@ -29,12 +29,7 @@ async function login(req,res){
         res.header('Access-Control-Allow-Origin', 'https://campusconnect.onrender.com');
         res.header('Access-Control-Allow-Headers', '*');
         res.header('Access-Control-Allow-Credentials', true);
-        res.cookie('jwtToken', token, {
-            path:'/',
-            sameSite:'none',
-            secure:true,
-            maxAge: 30*24*3600000
-          }).status(201).json({message:"Login Successful","username":user.username});
+        res.status(201).json({message:"Login Successful","username":user.username,jwtToken:token});
           await otpRequests.deleteOne({email:email})
 //     }catch(e){
 //         return res.status(400).json({message:'Some Error has occured'});
