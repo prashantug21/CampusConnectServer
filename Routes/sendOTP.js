@@ -3,7 +3,7 @@ const nodemailer = require("nodemailer");
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "campusconnet2@gmail.com",
+    user: process.env.EMAIL_ID,
     pass: process.env.EMAIL_PASSWORD,
   },
 });
@@ -24,7 +24,7 @@ async function sendOTP(req, res) {
   });
 
     await transporter.sendMail({
-      from: "campusconnet2@gmail.com",
+      from: process.env.EMAIL_ID,
       to: data,
       subject: "OTP Campus Connect",
       html: "<h1>Your OTP for Campus Connect is "+  otp + "</h1>"
